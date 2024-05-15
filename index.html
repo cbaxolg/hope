@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>TE AMO MUCHO Esperanza</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <style>
         body {
             background-image: url('https://img.freepik.com/vector-gratis/papel-pintado-patron-corazon-pequeno-lindo-impresion-tejidos-textiles_1017-49356.jpg?w=826&t=st=1715792949~exp=1715793549~hmac=759cc7affc48e6b52e271196ae9889dbae891994cf1d778655878bb6c5142397');
@@ -44,8 +45,8 @@
     <div class="container">
         <h1>TE AMO MUCHO Esperanza</h1>
         <div class="counter">
-            <p><span style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Nos conocimos</span> hace <span id="conocidos"></span> días</p>
-            <p>Llevamos de pololeo <span id="pololeo"></span> días</p>
+            <p><span style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Nos conocimos</span> hace <span id="conocidos"></span></p>
+            <p>Llevamos de pololeo <span id="pololeo"></span></p>
         </div>
         <div class="progress">
             <div class="progress-bar" style="width: 100%;">100% de amor</div>
@@ -53,16 +54,20 @@
     </div>
 
     <script>
-        // Calcular los días desde el 16 de septiembre de 2023 hasta hoy
-        var conocidosDate = new Date('2023-09-16');
-        var currentDate = new Date();
-        var conocidosDays = Math.floor((currentDate - conocidosDate) / (1000 * 60 * 60 * 24));
-        document.getElementById('conocidos').innerText = conocidosDays;
+        // Calcular los días y meses desde el 16 de septiembre de 2023 hasta hoy
+        var conocidosDate = moment('2023-09-16');
+        var currentDate = moment();
+        var conocidosDuration = moment.duration(currentDate.diff(conocidosDate));
+        var conocidosMonths = Math.floor(conocidosDuration.asMonths());
+        var conocidosDays = Math.floor(conocidosDuration.asDays() % 30);
+        document.getElementById('conocidos').innerText = conocidosMonths + " meses y " + conocidosDays + " días";
 
-        // Calcular los días desde el 20 de enero de 2024 hasta hoy
-        var pololeoDate = new Date('2024-01-20');
-        var pololeoDays = Math.floor((currentDate - pololeoDate) / (1000 * 60 * 60 * 24));
-        document.getElementById('pololeo').innerText = pololeoDays;
+        // Calcular los días y meses desde el 20 de enero de 2024 hasta hoy
+        var pololeoDate = moment('2024-01-20');
+        var pololeoDuration = moment.duration(currentDate.diff(pololeoDate));
+        var pololeoMonths = Math.floor(pololeoDuration.asMonths());
+        var pololeoDays = Math.floor(pololeoDuration.asDays() % 30);
+        document.getElementById('pololeo').innerText = pololeoMonths + " meses y " + pololeoDays + " días";
     </script>
 </body>
 </html>
