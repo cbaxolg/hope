@@ -1,9 +1,68 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mi Página Web</title>
+    <title>TE AMO MUCHO Esperanza</title>
+    <style>
+        body {
+            background-image: url('https://img.freepik.com/vector-gratis/papel-pintado-patron-corazon-pequeno-lindo-impresion-tejidos-textiles_1017-49356.jpg?w=826&t=st=1715792949~exp=1715793549~hmac=759cc7affc48e6b52e271196ae9889dbae891994cf1d778655878bb6c5142397');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: white;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1, .counter p {
+            color: purple;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .progress {
+            margin-top: 20px;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background-color: pink;
+            text-align: center;
+            line-height: 30px;
+            transition: width 1s ease-in-out;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hola, musadfndo!</h1>
+    <div class="container">
+        <h1>TE AMO MUCHO Esperanza</h1>
+        <div class="counter">
+            <p><span style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Nos conocimos</span> hace <span id="conocidos"></span> días</p>
+            <p>Llevamos de pololeo <span id="pololeo"></span> días</p>
+        </div>
+        <div class="progress">
+            <div class="progress-bar" style="width: 100%;">100% de amor</div>
+        </div>
+    </div>
+
+    <script>
+        // Calcular los días desde el 16 de septiembre de 2023 hasta hoy
+        var conocidosDate = new Date('2023-09-16');
+        var currentDate = new Date();
+        var conocidosDays = Math.floor((currentDate - conocidosDate) / (1000 * 60 * 60 * 24));
+        document.getElementById('conocidos').innerText = conocidosDays;
+
+        // Calcular los días desde el 20 de enero de 2024 hasta hoy
+        var pololeoDate = new Date('2024-01-20');
+        var pololeoDays = Math.floor((currentDate - pololeoDate) / (1000 * 60 * 60 * 24));
+        document.getElementById('pololeo').innerText = pololeoDays;
+    </script>
 </body>
 </html>
